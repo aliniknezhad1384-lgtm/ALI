@@ -1,3 +1,4 @@
+print("hahaha")
 from rich.console import Console
 console = Console()
 l : list[tuple[str,list[str],str]] = [
