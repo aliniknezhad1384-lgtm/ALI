@@ -1,5 +1,4 @@
 print("hahaha")
-from rich.console import Console
 console = Console()
 l : list[tuple[str,list[str],str]] = [
     ('1234?',["a=aqwer",'b=tyui','c=asdf','d=zxcvb'],'A'),
