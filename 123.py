@@ -1,3 +1,4 @@
+from rich.console import Console
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -14,19 +15,18 @@ plt.grid(True)
 plt.show()
 #
 
-
 #
 from sklearn.linear_model import LinearRegression
 X = np.array(kiss).reshape(-1, 1)
 y = np.array(love)
 model = LinearRegression()
 model.fit(X, y) 
-print('Model trained successfully!')
+Console().print('Model trained successfully!',style= "black")
 #
 
 #
 test_kiss  = [[17]]
 prediction = model.predict(test_kiss)
-print(f"{prediction[0]:.0f}% !")
+print(f"{prediction[0]:.4f}% !")
 test_kiss2 = [[30]]
 print(f'{model.predict(test_kiss2)[0]:.0f}% !')
