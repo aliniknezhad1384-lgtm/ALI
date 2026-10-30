@@ -1,9 +1,9 @@
-print("hahaha")
+from rich.console import Console
 console = Console()
 l : list[tuple[str,list[str],str]] = [
-    ('1234?',["a=aqwer",'b=tyui','c=asdf','d=zxcvb'],'A'),
-    ('5678?',["a=1234",'b=4312','c=4556','d=7654'],'B'),
-    ('assfsg?',["a=lllll",'b=nnnnn','c=dddd','d=ytiegn'],'C')
+    ('bozorg tarin sayare manzoome shamsi kodam ast?',["a=zamin",'b=merikh','c=moshtari','d=zohal'],'C'),
+    ('kodam keshvar mabda ekhtera pitza ast?',["a=france",'b=italia','c=spain','d=germany'],'B'),
+    ('sari tarin heyvan khoshki kodam ast?',["a=shir",'b=asb','c=yoozpalang','d=gorg'],'C')
 ]
 score=0
 true_number=0
@@ -35,6 +35,24 @@ def show_menu():
                 exit()
             else:
                 print('invalid input, pls type "yes" or "no" :)')
+def golden_question():
+    global score
+    global lose
+    print('mikhahid soal talaii ra entekhab konid?')
+    player_answer=input('agar dorost bashad: +10 score , dar sorat javab eshtebah mostaghiman hazf mishavid)').strip().upper()
+    if player_answer=='YES':
+        print('kodam heyvan beyn gozine ha toolani tarin omr ra darad?\na=phil\nb=lakposht ghoolpeykar\nc=shir\nd=asb')
+        golden_answer=input('your choice?').strip().upper()
+        if golden_answer=='B':
+            console.print( 'correct' , style = "yellow")
+            score+=10
+            print('score +10 =',score)
+        else:
+            print('ohhhh...you lose')
+            lose=True
+            exit()
+
+
 def play_game():
     global score
     global true_number
@@ -46,7 +64,7 @@ def play_game():
         print(question)
         for j in range(4):
             print(answer[j])
-        user_answer:str=input('your choice?').strip().upper()
+        user_answer=input('your choice?').strip().upper()
         if user_answer==l[i][2]:
             console.print('correct',style= "blue")
             score+=2
@@ -63,7 +81,7 @@ def play_game():
     if lose==False:
         print('congrats...you win')
         print((true_number*100)/len(l))
-    score=0
+    golden_question()  
 
 while True:
     show_menu()
